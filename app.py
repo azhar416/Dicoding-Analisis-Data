@@ -22,10 +22,10 @@ def main():
     
     col1, col2 = st.columns(2)
     with col1:
-        start_date = st.date_input("Start Date", default_start_date, min_value=min_date, max_value=max_date)
+        start_date = st.date_input("Start Date", default_start_date, min_value=default_start_date, max_value=default_end_date)
     
     with col2:
-        end_date = st.date_input("Start Date", default_end_date, min_value=min_date, max_value=max_date)
+        end_date = st.date_input("Start Date", default_end_date, min_value=default_start_date, max_value=default_end_date)
 
     main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
     st.dataframe(main_df.head(10))
