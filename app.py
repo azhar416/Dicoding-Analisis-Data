@@ -49,8 +49,14 @@ def main():
         st.metric("Total User", value=total_count)
     
     fig, ax =  plt.subplots(1, 1, figsize = (10,5))
-    sns.lineplot(x="datetime", y='total_count', data=main_df, ax=ax)
-    
+    ax.plot(
+        main_df["datetime"],
+        main_df["total_count"], 
+        linewidth=2,
+        color="#90CAF9"
+    )
+    ax.tick_params(axis='y', labelsize=20)
+    ax.tick_params(axis='x', labelsize=15)
     st.pyplot(fig)
 
 if __name__ == '__main__':
