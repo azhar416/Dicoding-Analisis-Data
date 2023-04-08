@@ -24,15 +24,10 @@ with st.sidebar:
     )
 
 def main():
-    # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
+    main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
+    main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
 
     st.title("Bike Sharing")
-
-    
-    st.subheader('Jumlah Peminjam Harian')
-
-    main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
-    # st.dataframe(main_df.head(10))
  
     col1, col2, col3 = st.columns(3)
     
@@ -48,7 +43,8 @@ def main():
         total_count = main_df.total_count.sum()
         st.metric("Total User", value=total_count)
     
-    fig, ax =  plt.subplots(1, 1, figsize = (20,10))
+    st.subheader('Jumlah Peminjam Harian')
+    fig, ax =  plt.subplots(1, 1, figsize = (16,10))
     ax.plot(
         main_df["datetime"],
         main_df["total_count"], 
@@ -58,6 +54,20 @@ def main():
     ax.tick_params(axis='y', labelsize=20)
     ax.tick_params(axis='x', labelsize=15)
     st.pyplot(fig)
+
+    st.subheader('Jumlah Peminjam Bulanan')
+    fig, ax =  plt.subplots(1, 1, figsize = (16,10))
+    ax.plot(
+        main_df_monthly["datetime"],
+        main_df_monthly["total_count"], 
+        linewidth=2,
+        color="#90CAF9"
+    )
+    ax.tick_params(axis='y', labelsize=20)
+    ax.tick_params(axis='x', labelsize=15)
+    st.pyplot(fig)
+
+
 
 if __name__ == '__main__':
     main()
