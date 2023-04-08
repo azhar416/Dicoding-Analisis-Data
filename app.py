@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import datetime
 
 df = pd.read_csv('./Dataset/df.csv')
 df_monthly = pd.read_csv('./Dataset/df_monthly.csv')
@@ -17,8 +18,11 @@ def main():
     st.title("Bike Sharing")
     st.subheader('Jumlah Peminjam Harian')
     
-    start_date = st.date_input("Start Date", (2011, 1, 1))
-    end_date = st.date_input("Start Date", (2012, 12, 31))
+    default_start_date = datetime.date(2011, 1, 1)
+    default_end_date = datetime.date(2011, 12, 31)
+
+    start_date = st.date_input("Start Date", default_start_date)
+    end_date = st.date_input("Start Date", default_end_date)
     st.write(start_date)
     st.write(end_date)
 
