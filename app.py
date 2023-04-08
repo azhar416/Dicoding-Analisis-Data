@@ -48,16 +48,8 @@ def main():
         total_count = main_df.total_count.sum()
         st.metric("Total User", value=total_count)
     
-    fig, ax = sns.lineplot(figsize=(16, 8))
-    ax.plot(
-        main_df['datetime'],
-        main_df["total_count"],
-        marker='o', 
-        linewidth=2,
-        color="#90CAF9"
-    )
-    ax.tick_params(axis='y', labelsize=20)
-    ax.tick_params(axis='x', labelsize=15)
+    fig, ax =  plt.subplots(1, 1, figsize = (10,5))
+    sns.lineplot(x="datetime", y='total_count', data=main_df, ax=ax)
     
     st.pyplot(fig)
 
