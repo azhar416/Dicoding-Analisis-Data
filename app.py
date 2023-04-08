@@ -21,23 +21,24 @@ with st.sidebar:
         value=[min_date, max_date]
     )
 
-main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
-main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
 
 def main():
+    main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
+    # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
+
     st.title("Bike Sharing")
     st.subheader('Jumlah Peminjam Harian')
  
     col1 = st.columns(1)
     
     with col1:
-        total_count = df.total_count.sum()
+        total_count = main_df.total_count.sum()
         st.metric("Total Peminjam", value=total_count)
     
     fig, ax = plt.subplots(figsize=(16, 8))
     ax.plot(
-        df['datetime'],
-        df["total_count"],
+        main_df['datetime'],
+        main_df["total_count"],
         marker='o', 
         linewidth=2,
         color="#90CAF9"
