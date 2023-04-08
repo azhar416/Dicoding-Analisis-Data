@@ -8,24 +8,24 @@ import datetime
 df = pd.read_csv('./Dataset/df.csv')
 df_monthly = pd.read_csv('./Dataset/df_monthly.csv')
 
-min_date = df["datetime"].min()
-max_date = df["datetime"].max()
+min_date = datetime.date(df['datetime'].min())
+max_date = datetime.date(df['datetime'].max())
 
 def main():
     # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
 
     st.title("Bike Sharing")
-    st.subheader('Jumlah Peminjam Harian')
-
+    
     default_start_date = datetime.date(2011, 1, 1)
     default_end_date = datetime.date(2012, 12, 31)
-    
     col1, col2 = st.columns(2)
     with col1:
-        start_date = st.date_input("Start Date", default_start_date, min_value=default_start_date, max_value=default_end_date)
+        start_date = st.date_input("Start Date", default_start_date, min_value=min_date, max_value=max_date)
     
     with col2:
-        end_date = st.date_input("Start Date", default_end_date, min_value=default_start_date, max_value=default_end_date)
+        end_date = st.date_input("Start Date", default_end_date, min_value=min_date, max_value=max_date)
+    
+    st.subheader('Jumlah Peminjam Harian')
 
     main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
     st.dataframe(main_df.head(10))
