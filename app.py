@@ -8,9 +8,8 @@ import datetime
 df = pd.read_csv('./Dataset/df.csv')
 df_monthly = pd.read_csv('./Dataset/df_monthly.csv')
 
-min_date = datetime.date(df['datetime'].min())
-max_date = datetime.date(df['datetime'].max())
-
+min_date = pd.to_datetime(df.datetime.min())
+max_date = pd.to_datetime(df.datetime.max())
 def main():
     # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
 
