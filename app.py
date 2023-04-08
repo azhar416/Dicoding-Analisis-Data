@@ -64,7 +64,7 @@ def main():
         color="#90CAF9"
     )
     ax.tick_params(axis='y', labelsize=20)
-    ax.tick_params(axis='x', labelsize=15)
+    ax.tick_params(axis='x', labelsize=5)
     st.pyplot(fig)
 
 
