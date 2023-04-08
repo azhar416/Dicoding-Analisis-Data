@@ -67,7 +67,71 @@ def main():
     ax.tick_params(axis='x', labelsize=15, rotation=45)
     st.pyplot(fig)
 
-
+    col1, col2 = st.columns(2)
+    st.subheader('Persebaran User')
+    with col1:
+        fig, ax = plt.subplots(figsize=(20, 10))
+ 
+        sns.barplot(
+            y="total_count", 
+            x="season",
+            data=main_df,
+            ax=ax
+        )
+        ax.set_title("Jumlah User Tiap Musim", loc="center", fontsize=50)
+        ax.set_ylabel(None)
+        ax.set_xlabel(None)
+        ax.tick_params(axis='x', labelsize=35)
+        ax.tick_params(axis='y', labelsize=30)
+        st.pyplot(fig)
+    with col2:
+        fig, ax = plt.subplots(figsize=(20, 10))
+ 
+        sns.barplot(
+            y="total_count", 
+            x="is_holiday",
+            data=main_df,
+            ax=ax
+        )
+        ax.set_title("Perbedaan User pada Liburan", loc="center", fontsize=50)
+        ax.set_ylabel(None)
+        ax.set_xlabel(None)
+        ax.tick_params(axis='x', labelsize=35)
+        ax.tick_params(axis='y', labelsize=30)
+        st.pyplot(fig)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        fig, ax = plt.subplots(figsize=(20, 10))
+ 
+        sns.barplot(
+            y="total_count", 
+            x="is_workingday",
+            data=main_df,
+            ax=ax
+        )
+        ax.set_title("Perbedaan User pada Hari Kerja", loc="center", fontsize=50)
+        ax.set_ylabel(None)
+        ax.set_xlabel(None)
+        ax.tick_params(axis='x', labelsize=35)
+        ax.tick_params(axis='y', labelsize=30)
+        st.pyplot(fig)
+    
+    with col2:
+        fig, ax = plt.subplots(figsize=(20, 10))
+ 
+        sns.barplot(
+            y="total_count", 
+            x="weather_condition",
+            data=main_df,
+            ax=ax
+        )
+        ax.set_title("Jumlah User Tiap Cuaca", loc="center", fontsize=50)
+        ax.set_ylabel(None)
+        ax.set_xlabel(None)
+        ax.tick_params(axis='x', labelsize=35)
+        ax.tick_params(axis='y', labelsize=30)
+        st.pyplot(fig)
 
 if __name__ == '__main__':
     main()
