@@ -67,8 +67,8 @@ def main():
     ax.tick_params(axis='x', labelsize=15, rotation=45)
     st.pyplot(fig)
 
-    col1, col2 = st.columns(2)
     st.subheader('Persebaran User')
+    col1, col2 = st.columns(2)
     with col1:
         fig, ax = plt.subplots(figsize=(20, 10))
  
