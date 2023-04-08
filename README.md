@@ -18,4 +18,4 @@ pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
 
 ## Deployment
 
-(Bike Sharing)[https://azhar416-dicoding-analisis-data-app-osl073.streamlit.app/#dashboard]
+[Bike Sharing](https://azhar416-dicoding-analisis-data-app-osl073.streamlit.app/#dashboard)
