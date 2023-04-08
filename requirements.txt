@@ -1,0 +1,8 @@
+cloudpickle==2.0.0
+numpy==1.20.3
+pandas==1.2.4
+requests==2.27.1
+scikit-learn==1.0
+streamlit==1.15.2
+seaborn==0.12.2
+matplotlib==3.7.1

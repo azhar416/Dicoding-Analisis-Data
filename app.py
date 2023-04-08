@@ -8,7 +8,7 @@ df = pd.read_csv('./Dataset/df.csv')
 df_monthly = pd.read_csv('./Dataset/df_monthly.csv')
 
 def main():
-    st.title("Home Credit Default Prediction!")
+    st.title("Dashboard!")
     df.head(10)
 
 if __name__ == '__main__':
