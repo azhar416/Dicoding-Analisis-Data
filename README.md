@@ -14,3 +14,8 @@ pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
 ## Run steamlit app
 
 `streamlit run app.py`
+
+
+## Deployment
+
+!(Bike Sharing)[https://azhar416-dicoding-analisis-data-app-osl073.streamlit.app/#dashboard]
