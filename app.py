@@ -18,6 +18,9 @@ def main():
     st.title("Bike Sharing")
     st.subheader('Jumlah Peminjam Harian')
     
+    st.write(min_date)
+    st.write(max_date)
+
     default_start_date = datetime.date(2011, 1, 1)
     default_end_date = datetime.date(2011, 12, 31)
 
