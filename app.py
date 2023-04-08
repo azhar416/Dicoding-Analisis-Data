@@ -32,7 +32,7 @@ def main():
     st.subheader('Jumlah Peminjam Harian')
 
     main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
-    st.dataframe(main_df.head(10))
+    # st.dataframe(main_df.head(10))
  
     col1, col2, col3 = st.columns(3)
     
@@ -48,7 +48,7 @@ def main():
         total_count = main_df.total_count.sum()
         st.metric("Total User", value=total_count)
     
-    fig, ax = plt.subplots(figsize=(16, 8))
+    fig, ax = sns.lineplot(figsize=(16, 8))
     ax.plot(
         main_df['datetime'],
         main_df["total_count"],
