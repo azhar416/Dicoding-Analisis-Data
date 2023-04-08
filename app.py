@@ -15,7 +15,7 @@ with st.sidebar:
     st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
     
     # Mengambil start_date & end_date dari date_input
-    start_date, end_date = st.date_input(
+    start_date = st.date_input(
         # label='Rentang Waktu',
         # min_value=min_date,
         # max_value=max_date,
