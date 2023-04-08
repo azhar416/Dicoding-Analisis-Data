@@ -48,7 +48,7 @@ def main():
         total_count = main_df.total_count.sum()
         st.metric("Total User", value=total_count)
     
-    fig, ax =  plt.subplots(1, 1, figsize = (10,5))
+    fig, ax =  plt.subplots(1, 1, figsize = (20,10))
     ax.plot(
         main_df["datetime"],
         main_df["total_count"], 
