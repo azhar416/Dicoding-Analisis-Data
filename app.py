@@ -12,26 +12,24 @@ min_date = df["datetime"].min()
 max_date = df["datetime"].max()
 
 def main():
-    # main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
     # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
 
     st.title("Bike Sharing")
     st.subheader('Jumlah Peminjam Harian')
-    
-    st.write(min_date)
-    st.write(max_date)
 
     default_start_date = datetime.date(2011, 1, 1)
-    default_end_date = datetime.date(2011, 12, 31)
+    default_end_date = datetime.date(2012, 12, 31)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        start_date = st.date_input("Start Date", default_start_date, min_value=min_date, max_value=max_date)
+    
+    with col2:
+        end_date = st.date_input("Start Date", default_end_date, min_value=min_date, max_value=max_date)
 
-    start_date = st.date_input("Start Date", default_start_date)
-    end_date = st.date_input("Start Date", default_end_date)
-    st.write(start_date)
-    st.write(end_date)
-
-    st.dataframe(df.head(10))
+    main_df = df[(df["datetime"] >= str(start_date)) & (df["datetime"] <= str(end_date))]
+    st.dataframe(main_df.head(10))
  
-    # col1 = st.columns(1)
     
     # with col1:
     #     total_count = main_df.total_count.sum()
