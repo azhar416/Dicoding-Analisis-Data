@@ -10,19 +10,29 @@ df_monthly = pd.read_csv('./Dataset/df_monthly.csv')
 
 min_date = pd.to_datetime(df.datetime.min())
 max_date = pd.to_datetime(df.datetime.max())
+
+with st.sidebar:
+    # Menambahkan logo perusahaan
+    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
+    
+    # Mengambil start_date & end_date dari date_input
+    start_date, end_date = st.date_input(
+        label='Rentang Waktu',min_value=min_date,
+        max_value=max_date,
+        value=[min_date, max_date]
+    )
+    
 def main():
     # main_df_monthly = df_monthly[(df_monthly["datetime"] >= str(start_date)) & (df_monthly["datetime"] <= str(end_date))]
 
     st.title("Bike Sharing")
-    
-    default_start_date = datetime.date(2011, 1, 1)
-    default_end_date = datetime.date(2012, 12, 31)
+
     col1, col2 = st.columns(2)
     with col1:
-        start_date = st.date_input("Start Date", default_start_date, min_value=min_date, max_value=max_date)
+        start_date = st.date_input("Start Date", min_date, min_value=min_date, max_value=max_date)
     
     with col2:
-        end_date = st.date_input("Start Date", default_end_date, min_value=min_date, max_value=max_date)
+        end_date = st.date_input("Start Date", max_date, min_value=min_date, max_value=max_date)
     
     st.subheader('Jumlah Peminjam Harian')
 
